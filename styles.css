@@ -19,11 +19,28 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .chat-header {
+    display: flex;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 15px;
-    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.chat-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.chat-title {
+    flex: 1;
     font-size: 1.2em;
     font-weight: bold;
+    text-align: left;
+}
+.typing-indicator {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #aaa;
 }
 .chat-messages {
     padding: 20px;
@@ -87,12 +104,4 @@ body {
     background-color: #007bff;
     color: white;
     cursor: pointer;
-}
-
-/* Стили для уведомления "(имя) пишет..." */
-.typing {
-    text-align: center;
-    margin: 10px 0;
-    font-style: italic;
-    color: #aaa;
 }
