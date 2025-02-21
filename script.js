@@ -14,40 +14,52 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayMessage() {
         if (index < messages.length) {
             const message = messages[index];
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message', message.side);
 
-            const messageContent = document.createElement('div');
-            messageContent.classList.add('message-content');
+            // Создать уведомление "(имя) пишет..."
+            const typingDiv = document.createElement('div');
+            typingDiv.classList.add('typing');
+            typingDiv.textContent = `${message.sender} пишет...`;
+            chatMessages.appendChild(typingDiv);
 
-            const sender = document.createElement('div');
-            sender.classList.add('message-sender');
-            sender.textContent = message.sender;
+            setTimeout(() => {
+                // Удалить уведомление "(имя) пишет..."
+                chatMessages.removeChild(typingDiv);
 
-            const text = document.createElement('div');
-            text.classList.add('message-text');
-            text.textContent = message.text;
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', message.side);
 
-            const avatar = document.createElement('img');
-            avatar.src = message.avatar;
-            avatar.alt = message.sender;
-            avatar.classList.add('avatar');
+                const messageContent = document.createElement('div');
+                messageContent.classList.add('message-content');
 
-            messageContent.appendChild(sender);
-            messageContent.appendChild(text);
-            messageDiv.appendChild(messageContent);
-            messageDiv.appendChild(avatar);
-            chatMessages.appendChild(messageDiv);
+                const sender = document.createElement('div');
+                sender.classList.add('message-sender');
+                sender.textContent = message.sender;
 
-            // Воспроизвести звук уведомления для любого сообщения
-            const audio = new Audio('audio/telegram-notification.mp3');
-            audio.play().catch(error => {
-                console.error('Error playing audio:', error);
-            });
+                const text = document.createElement('div');
+                text.classList.add('message-text');
+                text.textContent = message.text;
 
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            index++;
-            setTimeout(displayMessage, 2000); // Задержка в 2 секунды между сообщениями
+                const avatar = document.createElement('img');
+                avatar.src = message.avatar;
+                avatar.alt = message.sender;
+                avatar.classList.add('avatar');
+
+                messageContent.appendChild(sender);
+                messageContent.appendChild(text);
+                messageDiv.appendChild(messageContent);
+                messageDiv.appendChild(avatar);
+                chatMessages.appendChild(messageDiv);
+
+                // Воспроизвести звук уведомления для любого сообщения
+                const audio = new Audio('audio/notification.mp3');
+                audio.play().catch(error => {
+                    console.error('Error playing audio:', error);
+                });
+
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                index++;
+                setTimeout(displayMessage, 2000); // Задержка в 2 секунды между сообщениями
+            }, 1000); // Задержка в 1 секунду для уведомления "(имя) пишет..."
         }
     }
 
@@ -74,6 +86,12 @@ function sendMessage() {
         messageDiv.appendChild(messageContent);
         messageDiv.appendChild(avatar);
         chatMessages.appendChild(messageDiv);
+
+        // Воспроизвести звук уведомления
+        const audio = new Audio('audio/notification.mp3');
+        audio.play().catch(error => {
+            console.error('Error playing audio:', error);
+        });
 
         input.value = '';
         chatMessages.scrollTop = chatMessages.scrollHeight;
