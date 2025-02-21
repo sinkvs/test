@@ -6,24 +6,23 @@ document.addEventListener('DOMContentLoaded', function() {
         { sender: 'Константин', text: 'Нужно чтобы вы провели квест!', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
         { sender: 'Владислав', text: 'Отличная идея, давайте обсудим))', avatar: 'images/vladislav-avatar.jpg', side: 'right' },
         { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' }
+
     ];
 
     const chatMessages = document.getElementById('chat-messages');
+    const typingIndicator = document.getElementById('typing-indicator');
     let index = 0;
 
     function displayMessage() {
         if (index < messages.length) {
             const message = messages[index];
 
-            // Создать уведомление "(имя) пишет..."
-            const typingDiv = document.createElement('div');
-            typingDiv.classList.add('typing');
-            typingDiv.textContent = `${message.sender} пишет...`;
-            chatMessages.appendChild(typingDiv);
+            // Обновить уведомление "(имя) пишет..."
+            typingIndicator.textContent = `${message.sender} пишет...`;
 
             setTimeout(() => {
-                // Удалить уведомление "(имя) пишет..."
-                chatMessages.removeChild(typingDiv);
+                // Очистить уведомление "(имя) пишет..."
+                typingIndicator.textContent = '';
 
                 const messageDiv = document.createElement('div');
                 messageDiv.classList.add('message', message.side);
@@ -96,4 +95,4 @@ function sendMessage() {
         input.value = '';
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-}
+}   
