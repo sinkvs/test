@@ -21,3 +21,5 @@ function sendMessage() {
 
         input.value = '';
         chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+}
