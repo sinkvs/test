@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Воспроизвести звук уведомления только для сообщений от других пользователей
             if (message.side === 'left') {
-                const audio = new Audio('audio/notification.mp3');
+                const audio = new Audio('audio/telegram-notification.mp3');
                 audio.play();
             }
 
