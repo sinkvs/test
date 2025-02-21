@@ -38,9 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
             messageDiv.appendChild(avatar);
             chatMessages.appendChild(messageDiv);
 
-            // Воспроизвести звук уведомления
-            const audio = new Audio('audio/notification.mp3');
-            audio.play();
+            // Воспроизвести звук уведомления только для сообщений от других пользователей
+            if (message.side === 'left') {
+                const audio = new Audio('audio/notification.mp3');
+                audio.play();
+            }
 
             chatMessages.scrollTop = chatMessages.scrollHeight;
             index++;
