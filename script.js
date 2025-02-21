@@ -38,13 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
             messageDiv.appendChild(avatar);
             chatMessages.appendChild(messageDiv);
 
-            // Play notification sound
+            // Воспроизвести звук уведомления
             const audio = new Audio('audio/notification.mp3');
             audio.play();
 
             chatMessages.scrollTop = chatMessages.scrollHeight;
             index++;
-            setTimeout(displayMessage, 2000); // Adjust the delay as needed
+            setTimeout(displayMessage, 2000); // Задержка в 2 секунды между сообщениями
         }
     }
 
