@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { sender: 'Леонид', text: 'Так, Константинчик, что ты задумал снова?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
         { sender: 'Константин', text: 'Леонид, нужна ваша активная помощь', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
         { sender: 'Константин', text: 'Нужно чтобы вы провели квест!', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
-        { sender: 'Владислав', text: 'Отличная идея, давайте обсудим))', avatar: 'images/vladislav-avatar.jpg', side: 'right' }
+        { sender: 'Владислав', text: 'Отличная идея, давайте обсудим))', avatar: 'images/vladislav-avatar.jpg', side: 'right' }б
+        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' }
     ];
 
     const chatMessages = document.getElementById('chat-messages');
