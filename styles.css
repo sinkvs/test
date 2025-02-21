@@ -88,3 +88,11 @@ body {
     color: white;
     cursor: pointer;
 }
+
+/* Стили для уведомления "(имя) пишет..." */
+.typing {
+    text-align: center;
+    margin: 10px 0;
+    font-style: italic;
+    color: #aaa;
+}
