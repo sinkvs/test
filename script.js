@@ -6,20 +6,8 @@ function sendMessage() {
         const chatMessages = document.getElementById('chat-messages');
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message', 'right');
-
-        const avatar = document.createElement('img');
-        avatar.src = 'vladislav-avatar.png'; // Placeholder for Vladislav's avatar
-        avatar.alt = 'Vladislav';
-        avatar.classList.add('avatar');
-
-        const messageContent = document.createElement('div');
-        messageContent.classList.add('message-content');
-        messageContent.textContent = message;
-
-        messageDiv.appendChild(avatar);
-        messageDiv.appendChild(messageContent);
+        messageDiv.textContent = message;
         chatMessages.appendChild(messageDiv);
-
         input.value = '';
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
