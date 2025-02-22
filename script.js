@@ -1,23 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     const messages = [
-        { sender: 'Владимир', text: 'Привет всем!', avatar: 'images/vladimir-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Так, Константинчик, что ты задумал снова?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
-        { sender: 'Константин', text: 'Леонид, нужна ваша активная помощь', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
-        { sender: 'Константин', text: 'Нужно чтобы вы провели квест!', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
-        { sender: 'Владислав', text: 'Отличная идея, давайте обсудим))', avatar: 'images/vladislav-avatar.jpg', side: 'right' },
-        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Что, какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' }
-
+        { sender: 'Константин', text: 'Всем привет! Пора обсудить, что мы будем покупать и как поздравим 8 марта.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
+        { sender: 'Владимир', text: 'Надо всех добавить', avatar: 'images/vladimir-avatar.jpg', side: 'left' },
+        { notification: 'Владислав теперь состоит в чате' },
+        { sender: 'Константин', text: 'Леонид, нам нужна ваша активная помощь', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
+        { sender: 'Леонид', text: 'Константинчик, черт возьми, что ты опять замыслил?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
+        { sender: 'Константин', text: 'В общем, идея такая, будете проводить квест', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
+        { sender: 'Владислав', text: 'О, это круто надо обсудить!', avatar: 'images/vladislav-avatar.jpg', side: 'right' },
+        { sender: 'Леонид', text: 'Чтооо? Какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
+        { sender: 'Константин', text: 'Ваша задача, Леонид, очень проста: вы задаете вопросы, а наши девушки должны на них ответить.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
+        { sender: 'Леонид', text: 'Нууу, даже не знаю, что тебе сказать. Я не Дибров – никогда не был ведущим «Кто хочет стать миллионером?», так откуда мысль, что я супер ведущий? И вообще, пусть Владимир это сделает, я как-то диктором не рожден!', avatar: 'images/leonid-avatar.jpg', side: 'left' },
+        { sender: 'Константин', text: 'Да нет, Леонид, вы не будете зачитывать сами – идея в другом, сейчас всё увидите!', avatar: 'images/konstantin-avatar.jpg', side: 'left' }
     ];
 
     const chatMessages = document.getElementById('chat-messages');
@@ -28,48 +21,59 @@ document.addEventListener('DOMContentLoaded', function() {
         if (index < messages.length) {
             const message = messages[index];
 
-            // Обновить уведомление "(имя) пишет..."
-            typingIndicator.textContent = `${message.sender} пишет...`;
-
-            setTimeout(() => {
-                // Очистить уведомление "(имя) пишет..."
-                typingIndicator.textContent = '';
-
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message', message.side);
-
-                const messageContent = document.createElement('div');
-                messageContent.classList.add('message-content');
-
-                const sender = document.createElement('div');
-                sender.classList.add('message-sender');
-                sender.textContent = message.sender;
-
-                const text = document.createElement('div');
-                text.classList.add('message-text');
-                text.textContent = message.text;
-
-                const avatar = document.createElement('img');
-                avatar.src = message.avatar;
-                avatar.alt = message.sender;
-                avatar.classList.add('avatar');
-
-                messageContent.appendChild(sender);
-                messageContent.appendChild(text);
-                messageDiv.appendChild(messageContent);
-                messageDiv.appendChild(avatar);
-                chatMessages.appendChild(messageDiv);
-
-                // Воспроизвести звук уведомления для любого сообщения
-                const audio = new Audio('audio/notification.mp3');
-                audio.play().catch(error => {
-                    console.error('Error playing audio:', error);
-                });
-
+            if (message.notification) {
+                // Создать уведомление о добавлении в чат
+                const notificationDiv = document.createElement('div');
+                notificationDiv.classList.add('notification');
+                notificationDiv.textContent = message.notification;
+                chatMessages.appendChild(notificationDiv);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
                 index++;
                 setTimeout(displayMessage, 2000); // Задержка в 2 секунды между сообщениями
-            }, 1000); // Задержка в 1 секунду для уведомления "(имя) пишет..."
+            } else {
+                // Обновить уведомление "(имя) пишет..."
+                typingIndicator.textContent = `${message.sender} пишет...`;
+
+                setTimeout(() => {
+                    // Очистить уведомление "(имя) пишет..."
+                    typingIndicator.textContent = '';
+
+                    const messageDiv = document.createElement('div');
+                    messageDiv.classList.add('message', message.side);
+
+                    const messageContent = document.createElement('div');
+                    messageContent.classList.add('message-content');
+
+                    const sender = document.createElement('div');
+                    sender.classList.add('message-sender');
+                    sender.textContent = message.sender;
+
+                    const text = document.createElement('div');
+                    text.classList.add('message-text');
+                    text.textContent = message.text;
+
+                    const avatar = document.createElement('img');
+                    avatar.src = message.avatar;
+                    avatar.alt = message.sender;
+                    avatar.classList.add('avatar');
+
+                    messageContent.appendChild(sender);
+                    messageContent.appendChild(text);
+                    messageDiv.appendChild(messageContent);
+                    messageDiv.appendChild(avatar);
+                    chatMessages.appendChild(messageDiv);
+
+                    // Воспроизвести звук уведомления для любого сообщения
+                    const audio = new Audio('audio/notification.mp3');
+                    audio.play().catch(error => {
+                        console.error('Error playing audio:', error);
+                    });
+
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    index++;
+                    setTimeout(displayMessage, 2000); // Задержка в 2 секунды между сообщениями
+                }, 1000); // Задержка в 1 секунду для уведомления "(имя) пишет..."
+            }
         }
     }
 
@@ -98,7 +102,7 @@ function sendMessage() {
         chatMessages.appendChild(messageDiv);
 
         // Воспроизвести звук уведомления
-        const audio = new Audio('audio/telegram-notification.mp3');
+        const audio = new Audio('audio/notification.mp3');
         audio.play().catch(error => {
             console.error('Error playing audio:', error);
         });
@@ -106,4 +110,4 @@ function sendMessage() {
         input.value = '';
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-}   
+}
