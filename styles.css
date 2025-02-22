@@ -31,8 +31,10 @@ body {
     border-radius: 50%;
     margin-right: 10px;
 }
-.chat-title {
+.chat-title-container {
     flex: 1;
+}
+.chat-title {
     font-size: 1.2em;
     font-weight: bold;
     text-align: left;
@@ -104,4 +106,10 @@ body {
     background-color: #007bff;
     color: white;
     cursor: pointer;
+}
+.notification {
+    text-align: center;
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 10px;
 }
