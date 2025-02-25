@@ -110,7 +110,7 @@ function sendMessage() {
         chatMessages.appendChild(messageDiv);
 
         // Воспроизвести звук уведомления
-        const audio = new Audio('audio/notification.mp3');
+        const audio = new Audio('audio/telegram-notification.mp3');
         audio.play().catch(error => {
             console.error('Error playing audio:', error);
         });
