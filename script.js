@@ -17,6 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const typingIndicator = document.getElementById('typing-indicator');
     let index = 0;
 
+     // Предварительная загрузка изображений
+    messages.forEach(message => {
+        if (message.avatar) {
+            const img = new Image();
+            img.src = message.avatar;
+        }
+    });
+    
     function displayMessage() {
         if (index < messages.length) {
             const message = messages[index];
