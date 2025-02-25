@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
     const messages = [
         { sender: 'Константин', text: 'Всем привет! Пора обсудить, что мы будем покупать и как поздравим 8 марта.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
-        { sender: 'Владимир', text: 'Надо всех добавить', avatar: 'images/vladimir-avatar.jpg', side: 'left' },
+        { sender: 'Владимир', text: 'Надо всех добавить', avatar: 'images/vladimir-avatar.png', side: 'left' },
         { notification: 'Владислав теперь состоит в чате' },
         { sender: 'Константин', text: 'Леонид, нам нужна ваша активная помощь', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Константинчик, черт возьми, что ты опять замыслил?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
+        { sender: 'Леонид', text: 'Константинчик, черт возьми, что ты опять замыслил?', avatar: 'images/leonid-avatar.png', side: 'left' },
         { sender: 'Константин', text: 'В общем, идея такая, будете проводить квест', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
-        { sender: 'Владислав', text: 'О, это круто надо обсудить!', avatar: 'images/vladislav-avatar.jpg', side: 'right' },
-        { sender: 'Леонид', text: 'Чтооо? Какой еще квест?', avatar: 'images/leonid-avatar.jpg', side: 'left' },
+        { sender: 'Владислав', text: 'О, это круто надо обсудить!', avatar: 'images/vladislav-avatar.png', side: 'right' },
+        { sender: 'Леонид', text: 'Чтооо? Какой еще квест?', avatar: 'images/leonid-avatar.png', side: 'left' },
         { sender: 'Константин', text: 'Ваша задача, Леонид, очень проста: вы задаете вопросы, а наши девушки должны на них ответить.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Нууу, даже не знаю, что тебе сказать. Я не Дибров – никогда не был ведущим «Кто хочет стать миллионером?», так откуда мысль, что я супер ведущий? И вообще, пусть Владимир это сделает, я как-то диктором не рожден!', avatar: 'images/leonid-avatar.jpg', side: 'left' },
+        { sender: 'Леонид', text: 'Нууу, даже не знаю, что тебе сказать. Я не Дибров – никогда не был ведущим «Кто хочет стать миллионером?», так откуда мысль, что я супер ведущий? И вообще, пусть Владимир это сделает, я как-то диктором не рожден!', avatar: 'images/leonid-avatar.png', side: 'left' },
         { sender: 'Константин', text: 'Да нет, Леонид, вы не будете зачитывать сами – идея в другом, сейчас всё увидите!', avatar: 'images/konstantin-avatar.jpg', side: 'left' }
     ];
 
