@@ -1,3 +1,5 @@
+let soundEnabled = false;
+
 document.addEventListener('DOMContentLoaded', function() {
     const messages = [
         { sender: 'Константин', text: 'Всем привет! Пора обсудить, что мы будем покупать и как поздравим 8 марта.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
@@ -17,33 +19,37 @@ document.addEventListener('DOMContentLoaded', function() {
     const typingIndicator = document.getElementById('typing-indicator');
     let index = 0;
 
-     // Предварительная загрузка изображений
-    messages.forEach(message => {
-        if (message.avatar) {
-            const img = new Image();
-            img.src = message.avatar;
+    function enableSound() {
+        soundEnabled = true;
+        document.getElementById('sound-notification').style.display = 'none';
+        playNotificationSound();
+    }
+
+    function playNotificationSound() {
+        if (soundEnabled) {
+            const audio = new Audio('audio/notification.mp3');
+            audio.play().catch(error => {
+                console.error('Error playing audio:', error);
+            });
         }
-    });
-    
+    }
+
     function displayMessage() {
         if (index < messages.length) {
             const message = messages[index];
 
             if (message.notification) {
-                // Создать уведомление о добавлении в чат
                 const notificationDiv = document.createElement('div');
                 notificationDiv.classList.add('notification');
                 notificationDiv.textContent = message.notification;
                 chatMessages.appendChild(notificationDiv);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
                 index++;
-                setTimeout(displayMessage, 2000); // Задержка в 2 секунды между сообщениями
+                setTimeout(displayMessage, 2000);
             } else {
-                // Обновить уведомление "(имя) пишет..."
                 typingIndicator.textContent = `${message.sender} пишет...`;
 
                 setTimeout(() => {
-                    // Очистить уведомление "(имя) пишет..."
                     typingIndicator.textContent = '';
 
                     const messageDiv = document.createElement('div');
@@ -71,16 +77,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     messageDiv.appendChild(avatar);
                     chatMessages.appendChild(messageDiv);
 
-                    // Воспроизвести звук уведомления для любого сообщения
-                    const audio = new Audio('audio/telegram-notification.mp3');
-                    audio.play().catch(error => {
-                        console.error('Error playing audio:', error);
-                    });
+                    playNotificationSound();
 
                     chatMessages.scrollTop = chatMessages.scrollHeight;
                     index++;
-                    setTimeout(displayMessage, 2000); // Задержка в 2 секунды между сообщениями
-                }, 1000); // Задержка в 1 секунду для уведомления "(имя) пишет..."
+                    setTimeout(displayMessage, 2000);
+                }, 1000);
             }
         }
     }
@@ -101,7 +103,7 @@ function sendMessage() {
         messageContent.textContent = message;
 
         const avatar = document.createElement('img');
-        avatar.src = 'images/vladislav-avatar.png'; // Путь к аватару Владислава
+        avatar.src = 'images/vladislav-avatar.png';
         avatar.alt = 'Vladislav';
         avatar.classList.add('avatar');
 
@@ -109,11 +111,7 @@ function sendMessage() {
         messageDiv.appendChild(avatar);
         chatMessages.appendChild(messageDiv);
 
-        // Воспроизвести звук уведомления
-        const audio = new Audio('audio/telegram-notification.mp3');
-        audio.play().catch(error => {
-            console.error('Error playing audio:', error);
-        });
+        playNotificationSound();
 
         input.value = '';
         chatMessages.scrollTop = chatMessages.scrollHeight;
