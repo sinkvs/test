@@ -88,6 +88,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     displayMessage();
+
+    // Показать уведомление о необходимости включить звук
+    document.getElementById('sound-notification').style.display = 'block';
 });
 
 function sendMessage() {
