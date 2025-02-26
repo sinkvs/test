@@ -1,8 +1,8 @@
 const users = [
-    { name: "Константин", avatar: "avatar1.png" },
-    { name: "Леонид", avatar: "avatar2.png" },
-    { name: "Владислав", avatar: "avatar3.png" },
-    { name: "Владимир", avatar: "avatar4.png" }
+    { name: "Константин", avatar: "avatars/avatar1.png" },
+    { name: "Леонид", avatar: "avatars/avatar2.png" },
+    { name: "Владислав", avatar: "avatars/avatar3.png" },
+    { name: "Владимир", avatar: "avatars/avatar4.png" }
 ];
 
 const messages = [
