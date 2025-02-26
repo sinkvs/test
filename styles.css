@@ -1,6 +1,8 @@
+/* Основные стили */
 body {
-    font-family: Arial, sans-serif;
-    background: #e5ddd5;
+    font-family: 'Arial', sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,18 +10,21 @@ body {
     margin: 0;
 }
 
+/* Контейнер чата */
 .chat-container {
     width: 360px;
+    height: 600px;
     background: white;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
 }
 
+/* Заголовок чата */
 .chat-header {
-    background: #007AFF;
+    background: #0088cc;
     color: white;
     padding: 15px;
     display: flex;
@@ -34,64 +39,75 @@ body {
     margin-right: 10px;
 }
 
+/* Окно сообщений */
 .chat-box {
+    flex: 1;
     padding: 10px;
-    max-height: 500px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
 
+/* Блок сообщений */
 .message {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     margin: 10px 0;
-    max-width: 80%;
+    max-width: 75%;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
+/* Анимация появления сообщений */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Блок текста сообщения */
 .message-text {
-    padding: 10px;
-    border-radius: 10px;
+    padding: 12px;
+    border-radius: 18px;
     font-size: 14px;
     line-height: 1.4;
     position: relative;
 }
 
+/* Сообщения других пользователей */
 .other-message .message-text {
     background: #f1f1f1;
     color: black;
 }
 
+/* Ваши сообщения */
+.user-message {
+    justify-content: flex-end;
+}
+
 .user-message .message-text {
     background: #DCF8C6;
     color: black;
-    align-self: flex-end;
 }
 
-.message strong {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.typing {
-    font-style: italic;
-    color: gray;
-    text-align: left;
-    padding-left: 50px;
-    display: none;
-}
-
-.joined {
-    text-align: center;
-    font-style: italic;
-    color: gray;
-    margin: 5px 0;
-}
-
+/* Аватарки пользователей */
 .avatar {
     width: 35px;
     height: 35px;
     border-radius: 50%;
     margin-right: 10px;
+}
+
+/* Эффект "пишет сообщение..." */
+.typing {
+    font-style: italic;
+    color: gray;
+    padding-left: 50px;
+    display: none;
+}
+
+/* Сообщение о входе в чат */
+.joined {
+    text-align: center;
+    font-style: italic;
+    color: gray;
+    margin: 5px 0;
 }
