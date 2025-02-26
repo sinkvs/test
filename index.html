@@ -3,30 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Chat Simulation</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Чат-симулятор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eceff1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .chat-container {
+            width: 360px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .chat-header {
+            background: #007AFF;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+        .chat-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .chat-box {
+            padding: 10px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .user-message {
+            background: #DCF8C6;
+            align-self: flex-end;
+        }
+        .other-message {
+            background: #f1f1f1;
+            align-self: flex-start;
+        }
+        .message strong {
+            display: block;
+            font-weight: bold;
+        }
+        .typing {
+            font-style: italic;
+            color: gray;
+            display: none;
+        }
+        .joined {
+            text-align: center;
+            font-style: italic;
+            color: gray;
+        }
+    </style>
 </head>
 <body>
-    <div id="sound-notification">
-        Пожалуйста, включите звук, чтобы услышать уведомления.
-        <button onclick="enableSound()">Включить звук</button>
+
+<div class="chat-container">
+    <div class="chat-header">
+        <img src="https://i.pravatar.cc/100" alt="Аватар">
+        <span>Чат с друзьями</span>
     </div>
-    <div class="chat-container">
-        <div class="chat-header">
-            <img src="images/chat-avatar.jpg" alt="Chat Avatar" class="chat-avatar">
-            <div class="chat-title-container">
-                <div class="chat-title">8 марта</div>
-                <div class="typing-indicator" id="typing-indicator"></div>
-            </div>
-        </div>
-        <div class="chat-messages" id="chat-messages">
-            <!-- Сообщения будут добавляться здесь динамически -->
-        </div>
-        <div class="chat-input">
-            <input type="text" id="message-input" placeholder="Введите сообщение...">
-            <button onclick="sendMessage()">Отправить</button>
-        </div>
+    <div class="chat-box" id="chat-box">
+        <div class="joined">Константин присоединился к беседе</div>
+        <div class="joined">Леонид присоединился к беседе</div>
+        <div class="joined">Владислав присоединился к беседе</div>
+        <div class="joined">Владимир присоединился к беседе</div>
+        <div class="typing" id="typing">Кто-то пишет сообщение...</div>
     </div>
-    <script src="script.js"></script>
+</div>
+
+<audio id="notification-sound" src="notification.mp3"></audio>
+
+<script>
+    const messages = [
+        { name: "Константин", text: "Всем привет! Как дела?" },
+        { name: "Леонид", text: "Привет! У меня все отлично, как у вас?" },
+        { name: "Владислав", text: "Я только что с работы, уставший немного..." },
+        { name: "Владимир", text: "А я наоборот — день был легкий." },
+        { name: "Константин", text: "Круто! Может, на выходных встретимся?" },
+        { name: "Леонид", text: "Да, хорошая идея! Где встречаемся?" }
+    ];
+
+    function addMessage(name, text) {
+        const chatBox = document.getElementById("chat-box");
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message", "other-message");
+        messageDiv.innerHTML = `<strong>${name}</strong>${text}`;
+        chatBox.appendChild(messageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        
+        document.getElementById("notification-sound").play();
+    }
+
+    function showTyping() {
+        document.getElementById("typing").style.display = "block";
+    }
+
+    function hideTyping() {
+        document.getElementById("typing").style.display = "none";
+    }
+
+    function startChat() {
+        let i = 0;
+        function nextMessage() {
+            if (i < messages.length) {
+                showTyping();
+                setTimeout(() => {
+                    hideTyping();
+                    addMessage(messages[i].name, messages[i].text);
+                    i++;
+                    setTimeout(nextMessage, 2000);
+                }, 1500);
+            }
+        }
+        setTimeout(nextMessage, 2000);
+    }
+
+    startChat();
+</script>
+
 </body>
 </html>
