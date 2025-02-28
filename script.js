@@ -21,7 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function enableSound() {
         soundEnabled = true;
-        document.getElementById('sound-notification').style.display = 'none';
+        const notificationBanner = document.getElementById('sound-notification');
+        if (notificationBanner) {
+            notificationBanner.style.display = 'none';
+        }
         playNotificationSound();
     }
 
