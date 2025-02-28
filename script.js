@@ -89,44 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     displayMessage();
 
-    // Показать уведомление о необходимости включить звук
-    document.getElementById('sound-notification').style.display = 'block';
-
-    // Включить звук после взаимодействия пользователя
-    document.addEventListener('click', enableSound);
-});
-
-function sendMessage() {
-    const input = document.getElementById('message-input');
-    const message = input.value;
-    if (message.trim() !== '') {
-        const chatMessages = document.getElementById('chat-messages');
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', 'right');
-
-        const messageContent = document.createElement('div');
-        messageContent.classList.add('message-content');
-        messageContent.textContent = message;
-
-        const avatar = document.createElement('img');
-        avatar.src = 'images/vladislav-avatar.png';
-        avatar.alt = 'Vladislav';
-        avatar.classList.add('avatar');
-
-        messageDiv.appendChild(messageContent);
-        messageDiv.appendChild(avatar);
-        chatMessages.appendChild(messageDiv);
-
-        playNotificationSound();
-
-        input.value = '';
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-}
-
-
-    // Показать уведомление о необходимости включить звук
-    document.getElementById('sound-notification').style.display = 'block';
+    // Включить звук после первого касания экрана
+    document.addEventListener('touchstart', enableSound, { once: true });
+    // Включить звук после первого клика мыши
+    document.addEventListener('click', enableSound, { once: true });
 });
 
 function sendMessage() {
