@@ -25,12 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function playNotificationSound() {
-        if (soundEnabled) {
-            const audio = new Audio('audio/telegram-notification.mp3');
-            audio.play().catch(error => {
-                console.error('Error playing audio:', error);
-            });
-        }
+        const audio = new Audio('audio/telegram-notification.mp3');
+        audio.muted = true; // Начинаем воспроизведение в режиме muted
+        audio.play().then(() => {
+            audio.muted = false; // Включаем звук после начала воспроизведения
+        }).catch(error => {
+            console.error('Error playing audio:', error);
+        });
     }
 
     function displayMessage() {
