@@ -76,15 +76,29 @@ body {
     padding: 15px 30px;
     border: none;
     border-radius: 25px;
-    background-color: #007bff;
+    background: linear-gradient(-45deg, #ff6ec4, #7873f5, #6a82fb, #845ef7, #ff6ec4);
+    background-size: 400% 400%;
     color: white;
     font-size: 1em;
     cursor: pointer;
+    animation: gradient-animation 3s ease infinite;
     transition: background-color 0.3s;
 }
 
 #peek-button:hover {
-    background-color: #0056b3;
+    background-color: #ff6ec4;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .message {
