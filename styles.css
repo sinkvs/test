@@ -105,6 +105,7 @@ body {
     display: flex;
     align-items: flex-start;
     margin-bottom: 15px;
+    width: 100%;
 }
 
 .message.left {
@@ -115,11 +116,10 @@ body {
     flex-direction: row-reverse;
 }
 
-.avatar {
+.message .avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin-right: 10px;
 }
 
 .message-content {
