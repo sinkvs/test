@@ -77,8 +77,8 @@ body {
 }
 
 .chat-title-image {
-    width: 20px; /* Установите нужную ширину */
-    height: 20px; /* Установите нужную высоту */
+    width: 15px; /* Уменьшили размер изображения */
+    height: 15px; /* Уменьшили размер изображения */
     margin-right: 5px; /* Отступ между изображением и текстом */
     border-radius: 50%; /* Круглая форма */
     object-fit: cover; /* Сохраняет пропорции изображения */
@@ -88,6 +88,7 @@ body {
     font-size: 0.9em;
     font-style: italic;
     color: #aaa;
+    margin-left: 10px; /* Добавляем отступ слева */
 }
 
 .chat-messages {
@@ -141,9 +142,10 @@ body {
 
 .chat-input {
     display: flex;
-    padding: 15px; /* Увеличиваем отступы для лучшего отображения */
+    padding: 10px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     background-color: #111;
+    align-items: center; /* Выравнивание по вертикали */
 }
 
 .chat-input input {
