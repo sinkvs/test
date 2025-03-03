@@ -123,6 +123,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 });
 
+nextButton.addEventListener('click', () => {
+        // Переход к следующей части сайта
+        window.location.href = 'next-page.html'; // Замените на нужный URL
+    });
+});
+
 function sendMessage() {
     const input = document.getElementById('message-input');
     const message = input.value;
