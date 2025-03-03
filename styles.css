@@ -10,32 +10,6 @@ body {
     height: 100vh;
     color: white;
 }
-
-.notification-banner {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.notification-banner button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-}
-
 .chat-container {
     width: 375px;
     height: 667px;
@@ -43,10 +17,7 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
 }
-
 .chat-header {
     display: flex;
     align-items: center;
@@ -54,70 +25,47 @@ body {
     padding: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .chat-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
 }
-
 .chat-title-container {
-    display: flex;
-    align-items: center;
     flex: 1;
 }
-
 .chat-title {
     font-size: 1.2em;
     font-weight: bold;
     text-align: left;
-    display: flex;
-    align-items: center;
 }
-
-.chat-title-image {
-    width: 15px; /* Установите нужную ширину */
-    height: 15px; /* Установите нужную высоту */
-    margin-right: 5px; /* Отступ между изображением и текстом */
-    border-radius: 50%; /* Круглая форма */
-    object-fit: cover; /* Сохраняет пропорции изображения */
-}
-
 .typing-indicator {
     font-size: 0.9em;
     font-style: italic;
     color: #aaa;
-    margin-left: 10px; /* Добавляем отступ слева */
 }
-
 .chat-messages {
     padding: 20px;
-    flex: 1;
+    height: calc(100% - 100px);
     overflow-y: auto;
 }
-
 .message {
     display: flex;
     align-items: flex-start;
     margin-bottom: 15px;
 }
-
 .message.left {
     flex-direction: row;
 }
-
 .message.right {
     flex-direction: row-reverse;
 }
-
 .avatar {
-    width: 50px; /* Установите нужную ширину */
-    height: 50px; /* Установите нужную высоту */
-    object-fit: cover; /* Это свойство сохраняет пропорции изображения */
-    border-radius: 50%; /* Для круглых аватарок */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
-
 .message-content {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 10px;
@@ -125,29 +73,23 @@ body {
     max-width: 70%;
     position: relative;
 }
-
 .message.right .message-content {
     background-color: #008000;
     color: white;
 }
-
 .message-sender {
     font-weight: bold;
     margin-bottom: 5px;
 }
-
 .message-text {
     font-size: 0.9em;
 }
-
 .chat-input {
     display: flex;
     padding: 10px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     background-color: #111;
-    align-items: center; /* Выравнивание по вертикали */
 }
-
 .chat-input input {
     flex: 1;
     padding: 10px;
@@ -156,7 +98,6 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
 }
-
 .chat-input button {
     margin-left: 10px;
     padding: 10px 20px;
@@ -166,10 +107,15 @@ body {
     color: white;
     cursor: pointer;
 }
-
 .notification {
     text-align: center;
     font-size: 0.9em;
     color: #aaa;
     margin-bottom: 10px;
+}
+.avatar {
+    width: 50px; /* Установите нужную ширину */
+    height: 50px; /* Установите нужную высоту */
+    object-fit: cover; /* Это свойство сохраняет пропорции изображения */
+    border-radius: 50%; /* Для круглых аватарок */
 }
