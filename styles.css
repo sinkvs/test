@@ -10,6 +10,7 @@ body {
     height: 100vh;
     color: white;
 }
+
 .chat-container {
     width: 375px;
     height: 667px;
@@ -18,6 +19,7 @@ body {
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
 .chat-header {
     display: flex;
     align-items: center;
@@ -25,47 +27,87 @@ body {
     padding: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .chat-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
 }
+
 .chat-title-container {
     flex: 1;
 }
+
 .chat-title {
     font-size: 1.2em;
     font-weight: bold;
     text-align: left;
 }
+
 .typing-indicator {
     font-size: 0.9em;
     font-style: italic;
     color: #aaa;
 }
+
 .chat-messages {
     padding: 20px;
     height: calc(100% - 100px);
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.initial-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.initial-message p {
+    margin-bottom: 20px;
+}
+
+#peek-button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#peek-button:hover {
+    background-color: #0056b3;
+}
+
 .message {
     display: flex;
     align-items: flex-start;
     margin-bottom: 15px;
 }
+
 .message.left {
     flex-direction: row;
 }
+
 .message.right {
     flex-direction: row-reverse;
 }
+
 .avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
 }
+
 .message-content {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 10px;
@@ -73,23 +115,28 @@ body {
     max-width: 70%;
     position: relative;
 }
+
 .message.right .message-content {
     background-color: #008000;
     color: white;
 }
+
 .message-sender {
     font-weight: bold;
     margin-bottom: 5px;
 }
+
 .message-text {
     font-size: 0.9em;
 }
+
 .chat-input {
     display: flex;
     padding: 10px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     background-color: #111;
 }
+
 .chat-input input {
     flex: 1;
     padding: 10px;
@@ -98,6 +145,7 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
 }
+
 .chat-input button {
     margin-left: 10px;
     padding: 10px 20px;
@@ -107,15 +155,10 @@ body {
     color: white;
     cursor: pointer;
 }
+
 .notification {
     text-align: center;
     font-size: 0.9em;
     color: #aaa;
     margin-bottom: 10px;
-}
-.avatar {
-    width: 50px; /* Установите нужную ширину */
-    height: 50px; /* Установите нужную высоту */
-    object-fit: cover; /* Это свойство сохраняет пропорции изображения */
-    border-radius: 50%; /* Для круглых аватарок */
 }
