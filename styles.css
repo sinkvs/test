@@ -43,6 +43,8 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
 }
 
 .chat-header {
@@ -90,7 +92,7 @@ body {
 
 .chat-messages {
     padding: 20px;
-    height: calc(100% - 100px);
+    flex: 1;
     overflow-y: auto;
 }
 
@@ -139,7 +141,7 @@ body {
 
 .chat-input {
     display: flex;
-    padding: 10px;
+    padding: 15px; /* Увеличиваем отступы для лучшего отображения */
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     background-color: #111;
 }
