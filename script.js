@@ -24,9 +24,11 @@ document.addEventListener('DOMContentLoaded', async function() {
         { sender: 'Константин', text: 'Вот это настрой! Приступаем!', avatar: 'images/konstantin-avatar.jpg', side: 'left' }
     ];
 
-       const chatMessages = document.getElementById('chat-messages');
+    const chatMessages = document.getElementById('chat-messages');
     const typingIndicator = document.getElementById('typing-indicator');
     const peekButton = document.getElementById('peek-button');
+    const overlay = document.getElementById('overlay');
+    const nextButton = document.getElementById('next-button');
     let index = 0;
 
     function enableSound() {
@@ -105,13 +107,16 @@ document.addEventListener('DOMContentLoaded', async function() {
                     index++;
 
                     // Вычисляем задержку на основе длины текста
-                    const baseDelay = 1000; // Базовая задержка в миллисекундах
-                    const additionalDelayPerChar = 20; // Дополнительная задержка за каждый символ
+                    const baseDelay = 1000; // Уменьшенная базовая задержка в миллисекундах
+                    const additionalDelayPerChar = 20; // Уменьшенная дополнительная задержка за каждый символ
                     const delay = baseDelay + (message.text.length * additionalDelayPerChar);
 
                     setTimeout(displayMessage, delay);
                 }, 1000);
             }
+        } else {
+            // Показать кнопку после завершения диалога
+            overlay.style.display = 'flex';
         }
     }
 
@@ -121,9 +126,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         enableSound();
         displayMessage();
     });
-});
 
-nextButton.addEventListener('click', () => {
+    nextButton.addEventListener('click', () => {
         // Переход к следующей части сайта
         window.location.href = 'next-page.html'; // Замените на нужный URL
     });
