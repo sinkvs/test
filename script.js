@@ -2,7 +2,7 @@ let soundEnabled = false;
 let audioContext;
 let audioBuffer;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     const messages = [
         { sender: 'Константин', text: 'Всем привет! Пора обсудить, что мы будем покупать и как поздравим 8 марта.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
         { sender: 'Владимир', text: 'Надо всех добавить', avatar: 'images/vladimir-avatar.png', side: 'left' },
@@ -32,9 +32,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 audioContext = new (window.AudioContext || window.webkitAudioContext)();
             }
             if (!audioBuffer) {
-                const response = await fetch('audio/telegram-notification.mp3');
-                const arrayBuffer = await response.arrayBuffer();
-                audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+                try {
+                    const response = await fetch('audio/telegram-notification.mp3');
+                    const arrayBuffer = await response.arrayBuffer();
+                    audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+                } catch (error) {
+                    console.error('Error loading audio file:', error);
+                    return;
+                }
             }
             const source = audioContext.createBufferSource();
             source.buffer = audioBuffer;
