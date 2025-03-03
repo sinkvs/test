@@ -6,7 +6,7 @@
     <title>Mobile Chat Simulation</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>   
+<body>
     <div class="chat-container">
         <div class="chat-header">
             <img src="images/chat-avatar.jpg" alt="Chat Avatar" class="chat-avatar">
@@ -16,7 +16,10 @@
             </div>
         </div>
         <div class="chat-messages" id="chat-messages">
-            <!-- Сообщения будут добавляться здесь динамически -->
+            <div class="initial-message">
+                Что здесь происходит?
+            </div>
+            <button id="peek-button">Подглядеть</button>
         </div>
         <div class="chat-input">
             <input type="text" id="message-input" placeholder="Введите сообщение...">
