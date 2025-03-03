@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     const chatMessages = document.getElementById('chat-messages');
     const typingIndicator = document.getElementById('typing-indicator');
+    const peekButton = document.getElementById('peek-button');
     let index = 0;
 
     function enableSound() {
@@ -107,12 +108,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
 
-    displayMessage();
-
-    // Включить звук после первого касания экрана
-    document.addEventListener('touchstart', enableSound, { once: true });
-    // Включить звук после первого клика мыши
-    document.addEventListener('click', enableSound, { once: true });
+    peekButton.addEventListener('click', () => {
+        document.querySelector('.initial-message').remove();
+        peekButton.remove();
+        enableSound();
+        displayMessage();
+    });
 });
 
 function sendMessage() {
