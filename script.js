@@ -80,7 +80,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     chatMessages.scrollTop = chatMessages.scrollHeight;
                     index++;
-                    setTimeout(displayMessage, 2000);
+
+                    // Вычисляем задержку на основе длины текста
+                    const baseDelay = 2000; // Базовая задержка в миллисекундах
+                    const additionalDelayPerChar = 50; // Дополнительная задержка за каждый символ
+                    const delay = baseDelay + (message.text.length * additionalDelayPerChar);
+
+                    setTimeout(displayMessage, delay);
                 }, 1000);
             }
         }
