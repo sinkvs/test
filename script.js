@@ -1,4 +1,6 @@
 let soundEnabled = false;
+let audioContext;
+let audioBuffer;
 
 document.addEventListener('DOMContentLoaded', function() {
     const messages = [
@@ -24,14 +26,21 @@ document.addEventListener('DOMContentLoaded', function() {
         playNotificationSound();
     }
 
-    function playNotificationSound() {
-        const audio = new Audio('audio/telegram-notification.mp3');
-        audio.muted = true; // Начинаем воспроизведение в режиме muted
-        audio.play().then(() => {
-            audio.muted = false; // Включаем звук после начала воспроизведения
-        }).catch(error => {
-            console.error('Error playing audio:', error);
-        });
+    async function playNotificationSound() {
+        if (soundEnabled) {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (!audioBuffer) {
+                const response = await fetch('audio/telegram-notification.mp3');
+                const arrayBuffer = await response.arrayBuffer();
+                audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+            }
+            const source = audioContext.createBufferSource();
+            source.buffer = audioBuffer;
+            source.connect(audioContext.destination);
+            source.start(0);
+        }
     }
 
     function displayMessage() {
