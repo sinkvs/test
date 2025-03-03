@@ -61,6 +61,8 @@ body {
 }
 
 .chat-title-container {
+    display: flex;
+    align-items: center;
     flex: 1;
 }
 
@@ -68,6 +70,16 @@ body {
     font-size: 1.2em;
     font-weight: bold;
     text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.chat-title-image {
+    width: 20px; /* Установите нужную ширину */
+    height: 20px; /* Установите нужную высоту */
+    margin-right: 5px; /* Отступ между изображением и текстом */
+    border-radius: 50%; /* Круглая форма */
+    object-fit: cover; /* Сохраняет пропорции изображения */
 }
 
 .typing-indicator {
