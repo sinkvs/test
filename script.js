@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         { sender: 'Владимир', text: 'Надо всех добавить.', avatar: 'images/vladimir-avatar.png', side: 'left' },
         { notification: 'Владимир добавлен' },
         { notification: 'Алексей добавлен' },
+        { notification: 'Леонид добавлен' },
         { sender: 'Константин', text: 'Леонид, нам нужна ваша активная помощь.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
         { notification: 'Кирилл добавлен' },
         { notification: 'Роман добавлен' },
