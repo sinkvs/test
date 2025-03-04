@@ -4,16 +4,18 @@ let audioBuffer;
 
 document.addEventListener('DOMContentLoaded', async function() {
     const messages = [
-        { sender: 'Константин', text: 'Всем привет! Пора обсудить, что мы будем покупать и как поздравим 8 марта.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
-        { sender: 'Владимир', text: 'Надо всех добавить.', avatar: 'images/vladimir-avatar.png', side: 'left' },
         { notification: 'Владимир добавлен' },
         { notification: 'Алексей добавлен' },
         { notification: 'Леонид добавлен' },
-        { sender: 'Константин', text: 'Леонид, нам нужна ваша активная помощь.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
+        { notification: 'Олег Валерьянович добавлен' },
         { notification: 'Кирилл добавлен' },
         { notification: 'Роман добавлен' },
-        { sender: 'Леонид', text: 'Константинчик, черт возьми, что ты опять замыслил?', avatar: 'images/leonid-avatar.png', side: 'left' },
         { notification: 'Владислав добавлен' },
+        
+        { sender: 'Константин', text: 'Всем привет! Пора обсудить, что мы будем покупать и как поздравим 8 марта.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
+        
+        { sender: 'Константин', text: 'Леонид, нам нужна ваша активная помощь.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
+        { sender: 'Леонид', text: 'Константинчик, черт возьми, что ты опять замыслил?', avatar: 'images/leonid-avatar.png', side: 'left' },
         { sender: 'Константин', text: 'В общем, идея такая – будете проводить квест.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
         { sender: 'Леонид', text: 'Ооо нет, нет, нет, я категорически против. Знаете, нужен кто-то молодой, резвый, креативный, а я уже, так скажем, старый – у меня и память подводит, и фантазия тускнеет. Ставку надо делать на молодежь, на тех, у кого энергия прям, знаешь, шкалит!', avatar: 'images/leonid-avatar.png', side: 'left' },
         { sender: 'Константин', text: 'Безусловно, Леонид! Поэтому мы сделали ставку на молодежь, и у нас викторина будет виртуальная – современная, динамичная.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
