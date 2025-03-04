@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         { sender: 'Владимир', text: 'Леонид, ваша харизма придаёт любому мероприятию особый шарм))', avatar: 'images/vladimir-avatar.png', side: 'left' },
         { sender: 'Владислав', text: 'Уже предвкушаю)))', avatar: 'images/vladislav-avatar.png', side: 'right' },
         { sender: 'Константин', text: 'Так вот, мы уверены, что даже в виртуальной форме нужна ваша индивидуальность, а советы и оригинальные идеи сделают викторину незабываемой.', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
-        { sender: 'Леонид', text: 'Ладно, ничего без меня не можете сделать! Беру на себя главную роль – готовьтесь, ребята, будет эпично!', avatar: 'images/leonid-avatar.png', side: 'left' },
+        { sender: 'Леонид', text: 'Ладно, ничего без меня не можете сделать! Беру на себя главную роль – готовьтесь, ребята, будет эпично!', avatar: 'images/leo_ochki.jpg', side: 'left' },
         { sender: 'Константин', text: 'Вот это настрой! Приступаем!', avatar: 'images/konstantin-avatar.jpg', side: 'left' }
     ];
 
