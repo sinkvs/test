@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         { notification: 'Леонид добавлен' },
         { notification: 'Олег Валерьянович добавлен' },
         { notification: 'Кирилл добавлен' },
+        { notification: 'Андрей Николаевич добавлен' },
         { notification: 'Александр добавлен' },
         { notification: 'Роман добавлен' },
         { notification: 'Владислав добавлен' },
@@ -23,10 +24,13 @@ document.addEventListener('DOMContentLoaded', async function() {
         { sender: 'Владислав', text: 'Идея пушка)))🔫', avatar: 'images/vladislav-avatar.png', side: 'right' },
         { sender: 'Леонид', text: 'Ооо нет, нет, нет, я против. Знаете, нужен кто-то молодой, резвый, креативный, а я уже, так скажем, старый👨‍🦳 – у меня и память и фантазия уже не та.... Ставку надо делать на молодежь, на тех, у кого энергия прям, знаешь, шкалит!', avatar: 'images/leonid-avatar.png', side: 'left' },
         
+        { sender: 'Андрей Николаевич', text: 'Леня, соберись, не дрейфь!', avatar: 'images/mihal-avatar.png', side: 'left' },
+        
         { sender: 'Константин', text: 'Проведем голосование, кто за кандидатуру Леонида???🗽📜', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
         
         { sender: 'Константин', text: '+', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
-        { sender: 'Владимир', text: '+', avatar: 'images/gorkov-avatar.png', side: 'left' },
+        { sender: 'Владимир', text: '+', avatar: 'images/gorkov-avatar.png', side: 'left' },       
+        { sender: 'Андрей Николаевич', text: '+', avatar: 'images/mihal-avatar.png', side: 'left' },
         { sender: 'Александр', text: '+', avatar: 'images/alexandr-avatar.png', side: 'left' },
         { sender: 'Владимир', text: '+', avatar: 'images/vladimir-avatar.png', side: 'left' },
         { sender: 'Алексей', text: '+', avatar: 'images/alexey-avatar.png', side: 'left' },        
