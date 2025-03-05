@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         { sender: 'Константин', text: 'Отлично, единогласно!👏 Леонид, обратного пути нет!) 🤝', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
         { sender: 'Леонид', text: 'Даа лааадно.. 😳😳', avatar: 'images/leonid-avatar.png', side: 'left' },
         
-        { sender: 'Владимир', text: 'Леонид, ну куда нам без Вас то))', avatar: 'images/vladimir-avatar.png', side: 'left' },        
+        { sender: 'Владимир', text: 'Леонид, ну куда нам без Вас-то))', avatar: 'images/vladimir-avatar.png', side: 'left' },        
         { sender: 'Владислав', text: 'Уже предвкушаю)))😅', avatar: 'images/vladislav-avatar.png', side: 'right' },
         
         { sender: 'Константин', text: 'Всё будет чики-бамбони👌', avatar: 'images/konstantin-avatar.jpg', side: 'left' },
