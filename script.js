@@ -57,6 +57,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     const peekButton = document.getElementById('peek-button');
     const overlay = document.getElementById('overlay');
     const nextButton = document.getElementById('next-button');
+    const initialOverlay = document.getElementById('initial-overlay');
+    const startButton = document.getElementById('start-button');
     let index = 0;
 
     function enableSound() {
@@ -143,8 +145,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 }, 1000);
             }
         } else {
-            // Показать кнопку после завершения диалога
-            overlay.style.display = 'flex';
+            // 3-second pause before ending the chat
+            setTimeout(() => {
+                // End of chat logic here
+            }, 3000);
         }
     }
 
@@ -155,9 +159,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         displayMessage();
     });
 
-    nextButton.addEventListener('click', () => {
-        // Переход к следующей части сайта
-        window.location.href = 'next-page.html'; // Замените на нужный URL
+    startButton.addEventListener('click', () => {
+        initialOverlay.style.display = 'none';
+        enableSound();
+        displayMessage();
     });
 });
 
